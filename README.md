@@ -3,6 +3,6 @@ CRISPRloci provides an automated and comprehensive in silico characterization of
  \CRISPRloci is freely available at:rna.informatik.uni-freiburg.de/trunk/CRISPRloci
  
  
-![GitHub Logo](/images/Webserver_flowchart_v2_no_typo.png)
+![GitHub Logo](/images/Webserver_flowchart.png)
 
 
