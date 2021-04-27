@@ -6,6 +6,55 @@ The web server interface of CRISPRloci is freely available at: rna.informatik.un
  
 ![GitHub Logo](/images/Webserver_flowchart.png)
 
+### Installation and requirements
+
+CRISPRloci_standalone.py has been tested with Python 3.7 To run it, we recommend installing the same library versions we used. Since we exported our classifiers following the [model persistence guideline from scikit-learn](https://scikit-learn.org/stable/modules/model_persistence.html), it is not guaranteed that they will work properly if loaded using other Python and/or library versions. For such, we recommend the use of our docker image or a conda virtual environment. They make it easy to install the correct Python and library dependencies without affecting the whole operating system (see below).
+
+### First step: download the last version of the tool and extract it
+
+
+```
+wget https://github.com/BackofenLab/CRISPRloci/archive/v1.0.0.tar.gz
+tar -xzf v1.0.0.tar.gz
+```
+
+### Second step: download the Hidden Markov (HMM) and Machine Learning (ML) models
+
+Due to GitHub's file size constraints, we made our HMM and ML models available in Google Drive. You can download them [here](https://drive.google.com/file/d/1YbTxkn9KuJP2D7U1-6kL1Yimu_4RqSl1/view?usp=sharing) and [here](https://drive.google.com/file/d/1Nc5o6QVB6QxMxpQjmLQcbwQwkRLk-thM/view?usp=sharing). 
+Save both tar.gz files inside CRISPRcasIdentifier's directory. It is not necessary to extract them, since the tool will do that the first time it is run.
+
+
+### Third step: download the Hidden Markov (HMM) and Machine Learning (ML) models
+
+We made our HMM and ML models available in Google Drive. You can download them from the following links:
+
+* [Machine Learning Models](https://drive.google.com/file/d/1SkyS03hQG0P7bO7KvaQXgQ_J2Vfng85K/view?usp=sharing)
+* [General HMM Models](https://drive.google.com/file/d/1yZ3rl0LPIk-LDLKl2KHb3ra5O2h9_jpA/view?usp=sharing)
+* [Signature HMM Models](https://drive.google.com/file/d/1itiqV8djmrfwgwsByZLGe9olv7Uri5hV/view?usp=sharing)
+* [Cas HMM Models](https://drive.google.com/file/d/1zRJNlgqAC6A8BEDXPNKmtN4AfnVhjJIR/view?usp=sharing)
+
+Save all tar.gz files inside Casboundary's folder. It is not necessary to extract them, since the tool will do that the first time it is run.
+
+
+### Fourth step (conda)
+
+First we install Miniconda for python 3.
+Miniconda can be downloaded from here: [miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+Install Miniconda.
+``
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+```
+
+Create and activate environment for CRISPRloci.
+
+```
+conda env create -f CRISPRloci-env.yml -n CRISPRloci-env
+conda activate CRISPRloci-env
+```
+
 
 ### Quick run with the default parameters
 
@@ -19,14 +68,14 @@ python3.7 CRISPRloci_standalone.py -f Example/NC_005230.fasta -st dna
 #### Protein mode
 In order to test the protein mode tun the following command:
 ```
-python3.7 master_script.py -f Example/NC_005230_proteins.fasta -st  protein
+python3.7 CRISPRloci_standalone.py -f Example/NC_005230_proteins.fasta -st  protein
 ```
 
 
 #### Viral mode
 In order to test the viral more execute the following command
 ```
-python3.7 master_script.py -f Example/Input3.fa -st repeat
+python3.7 CRISPRloci_standalone.py -f Example/Input3.fa -st repeat
 ```
 
 
