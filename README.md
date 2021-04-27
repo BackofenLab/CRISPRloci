@@ -10,7 +10,7 @@ The web server interface of CRISPRloci is freely available at: rna.informatik.un
 
 If you use Casboundary, please cite our paper: 
 
-* [CRISPRidentify: identification of CRISPR arrays using machine learning approach](https://academic.oup.com/nar/article/49/4/e20/6027817) Alexander Mitrofanov, Omer S. Alkhnbashi, Sergey A. Shmakov, Kira S. Makarova, Eugene V. Koonin, Rolf Backofen, Nucleic Acids Research, DOI: [(https://doi.org/10.1093/nar/gkaa1158](https://doi.org/10.1093/nar/gkaa1158)
+* [CRISPRidentify: identification of CRISPR arrays using machine learning approach](https://academic.oup.com/nar/article/49/4/e20/6027817) Alexander Mitrofanov, Omer S. Alkhnbashi, Sergey A. Shmakov, Kira S. Makarova, Eugene V. Koonin, Rolf Backofen, Nucleic Acids Research, DOI: [https://doi.org/10.1093/nar/gkaa1158](https://doi.org/10.1093/nar/gkaa1158)
 * [Casboundary: Automated definition of integral Cas cassettes](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa984/5998667) Victor A. Padilha, Omer S. Alkhnbashi, Van Dinh Tran, Shiraz A. Shah, André C. P. L. F. de Carvalho, Rolf Backofen, Bioinformatics, 2020, DOI: [10.1093/bioinformatics/btaa984](https://doi.org/10.1093/bioinformatics/btaa984).
 * [CRISPRCasIdentifier: Machine learning for accurate identification and classification of CRISPR-Cas systems](https://academic.oup.com/gigascience/article/9/6/giaa062/5858408) Victor A. Padilha, Omer S. Alkhnbashi, Shiraz A. Shah, André C. P. L. F. de Carvalho, Rolf Backofen, GigaScience, 2020, DOI: [10.1093/gigascience/giaa062](https://doi.org/10.1093/gigascience/giaa062).
 
