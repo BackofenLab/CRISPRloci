@@ -6,6 +6,16 @@ The web server interface of CRISPRloci is freely available at: rna.informatik.un
  
 ![GitHub Logo](/images/Webserver_flowchart.png)
 
+## Citation
+
+If you use Casboundary, please cite our paper: 
+
+* [CRISPRidentify: identification of CRISPR arrays using machine learning approach](https://academic.oup.com/nar/article/49/4/e20/6027817) Alexander Mitrofanov, Omer S. Alkhnbashi, Sergey A. Shmakov, Kira S. Makarova, Eugene V. Koonin, Rolf Backofen, DOI: [ https://doi.org/10.1093/nar/gkaa1158]
+* [Casboundary: Automated definition of integral Cas cassettes](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa984/5998667) Victor A. Padilha, Omer S. Alkhnbashi, Van Dinh Tran, Shiraz A. Shah, André C. P. L. F. de Carvalho, Rolf Backofen, Bioinformatics, 2020, DOI: [10.1093/bioinformatics/btaa984](https://doi.org/10.1093/bioinformatics/btaa984).
+* [CRISPRCasIdentifier: Machine learning for accurate identification and classification of CRISPR-Cas systems](https://academic.oup.com/gigascience/article/9/6/giaa062/5858408) Victor A. Padilha, Omer S. Alkhnbashi, Shiraz A. Shah, André C. P. L. F. de Carvalho, Rolf Backofen, GigaScience, 2020, DOI: [10.1093/gigascience/giaa062](https://doi.org/10.1093/gigascience/giaa062).
+
+
+
 ### Installation and requirements
 
 CRISPRloci_standalone.py has been tested with Python 3.7 To run it, we recommend installing the same library versions we used. Since we exported our classifiers following the [model persistence guideline from scikit-learn](https://scikit-learn.org/stable/modules/model_persistence.html), it is not guaranteed that they will work properly if loaded using other Python and/or library versions. For such, we recommend the use of our docker image or a conda virtual environment. They make it easy to install the correct Python and library dependencies without affecting the whole operating system (see below).
