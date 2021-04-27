@@ -42,6 +42,7 @@ First we install Miniconda for python 3.
 Miniconda can be downloaded from here: [miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 Install Miniconda.
+
 ``
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x Miniconda3-latest-Linux-x86_64.sh
