@@ -55,6 +55,11 @@ conda env create -f CRISPRloci-env.yml -n CRISPRloci-env
 conda activate CRISPRloci-env
 ```
 
+After using CRISPRloci_standalone.py you can deactivate the environment.
+
+```
+conda deactivate
+```
 
 ### Quick run with the default parameters
 
