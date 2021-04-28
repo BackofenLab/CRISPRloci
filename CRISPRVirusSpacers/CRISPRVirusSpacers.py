@@ -12,8 +12,6 @@ cd_path = os.path.abspath("")
 
 path = ""
 outpath = ""
-kingdom = "AB"
-# dbpath = cd_path + "/DB/SpacersDB.fa"
 dbpath = cd_path + "/NewDB/Spacers_ShortnameDB.fa"
 user_dbpath = ""
 fasta_path = ""
@@ -24,11 +22,7 @@ b_cutoff = 50
 pr_cutoff = 0.7
 min_nocshftsbg = 1
 non_crisprbank = 0
-mask_arrays = 0
 ind = 0
-
-
-
 
     
 ####################FERTIG########################        
@@ -37,14 +31,9 @@ def for_loop(ARGV):
         if ARGV[i] == '-in':
             global path
             path = ARGV[i+1]
-            # print("in : ", path)
         if ARGV[i] == '-out':
             global outpath
             outpath = ARGV[i+1]
-        if ARGV[i] == 'kingdom':
-            global kingdom
-            kingdom = ARGV[i+1]
-            # print("kingdom : ", kingdom)
         if ARGV[i] == '-db':
             global dbpath
             dbpath= ARGV[i+1]
@@ -67,15 +56,9 @@ def for_loop(ARGV):
         if ARGV[i] == '-fasta_path':
             global fasta_path
             fasta_path = ARGV[i+1]
-        if ARGV[i] == '-non_crisprbank':
-            global non_crisprbank
-            non_crisprbank = 1
         if ARGV[i] == '-max_target_seqs':
             global max_target_seqs
             max_target_seqs = ARGV[i+1]
-        if ARGV[i] == '-mask_arrays':
-            global mask_arrays
-            mask_arrays = 1
         if (ARGV[i] == '-h') or (ARGV[i] == '-help'):
             print("\n")
             os.system("cat help.txt")
@@ -166,20 +149,11 @@ if __name__ == "__main__":
             SeqIO.write(record, path_2, "fasta")
         f.close()
 
-        # TODO: CHECK if it works
-        # Check if minced file exist.
-        if "minced" not in dir_list: 
-            if mask_arrays > 0:
-                print("CRISPR-array predictor \'minced\' not found, skip the array-masking step.\n")
-            mask_arrays = 0
-        
 
         flag = os.system("makeblastdb -in " + path_2 + " -out " + path_2 + " -dbtype nucl -parse_seqids")
 
         qfile = path_2
 
-        if ((mask_arrays > 0) and (os.path.isfile(path_3))):
-            qfile = path_3
 
         flag = os.system("blastn -query " + qfile +" -db " + dbpath + " -word_size 7 -out " + outpath + "/Output.txt -gapopen 10 -max_target_seqs " + str(max_target_seqs) + " -gapextend 2 -penalty -1 -reward 1 -task blastn-short -lcase_masking -outfmt \'6 qaccver saccver pident length mismatch gapopen qstart qend sstart send evalue bitscore qseq sseq nident slen qlen sstrand\' -dbsize " + str(int(dbsize)) + " -evalue " + str(e_cutoff_s) + " -num_threads 24 >/dev/null 2>&1")
         ff= "blastn -query " + qfile +" -db " + dbpath + " -word_size 7 -out " + outpath + "/Output.txt -gapopen 10 -max_target_seqs " + str(max_target_seqs) + " -gapextend 2 -penalty -1 -reward 1 -task blastn-short -lcase_masking -outfmt \'6 qaccver saccver pident length mismatch gapopen qstart qend sstart send evalue bitscore qseq sseq nident slen qlen sstrand\' -dbsize " + str(int(dbsize)) + " -evalue " + str(e_cutoff_s) + " -num_threads 24 >/dev/null 2>&1"
