@@ -1,0 +1,29 @@
+#!/usr/bin/perl -w
+
+unless ($ARGV[0]) {
+    die "Usage:cat file | tabcol col1 col2 ... [delim]\n";
+}
+
+$delim = '\t';
+unless ($ARGV[$#ARGV] =~ m/\d/) {
+    $delim = $ARGV[$#ARGV];
+    $#ARGV--;
+}
+$cmd = "\@line = split(/$delim/, \$line)";
+
+@line = ();
+@cols = ();
+while ($line = <STDIN>) {
+    chomp $line;
+    eval ($cmd);
+    $i = 0;
+    $string = "";
+    while ($i <= $#ARGV) {
+	$cols[$i] = $ARGV[$i] - 1 if $ARGV[$i] > 0;
+	$cols[$i] = $#line + 1 + $ARGV[$i] if $ARGV[$i] < 0;
+	$string = $string . "$line[$cols[$i]]\t";
+	$i++;
+    }
+    $string =~ s/\t$/\n/;
+    print $string;
+}

@@ -1,0 +1,12 @@
+#!/usr/bin/perl -w
+$col = 0; $eq = "";
+if (defined $ARGV[0] and defined $ARGV[1]) {
+    $col = $ARGV[0] - 1; $eq = $ARGV[1]
+}
+
+while ($line = <STDIN>) {
+    chomp $line;
+    @line = split(/\t/, $line);
+    $print = 'print "$line\n" if $line[$col] ' . "$eq";
+    eval($print);
+}

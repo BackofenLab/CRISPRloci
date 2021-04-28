@@ -1,0 +1,28 @@
+#!/usr/bin/perl -w
+
+unless ($ARGV[0]) {
+    die "Usage:cat file | tabcol2 col1/col2 col3+col4";
+}
+
+sub log_base {
+    my ($base, $value) = @_;
+    return log($value)/log($base);
+}
+sub round {
+    my($dec, $value) = @_;
+    return int($value*10**$dec + .5)/10**$dec;
+}
+
+
+$arg = $ARGV[0];
+$arg =~ s/\s/ . \"\\t\" . /g;
+$arg =~ s/\$(\d+)/\$line[$1-1]/g;
+$arg .= ' . "\n";';
+$arg = 'print ' . $arg;
+
+@line = ();
+while ($line = <STDIN>) {
+    chomp $line;
+    @line = split(/\t/, $line);
+    eval($arg)
+}
