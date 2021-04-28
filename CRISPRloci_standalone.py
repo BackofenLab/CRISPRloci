@@ -9,11 +9,10 @@ Exemplo: Master Script - Working
     2- For a Proteins
     python3.7 CRISPRloci_standalone.py -f Example/NC_005230_proteins.fasta -st protein -out results
 
-    3- For a repeat
-    python3.7 CRISPRloci_standalone.py -f Example/NC_005230_proteins.fasta -st repeat -out results
+    3- For a Virus
+    python3.7 CRISPRloci_standalone.py -f Example/NC_034623.fasta -st virus -out results
 
-    4- For a Virus
-    python3.7 CRISPRloci_standalone.py -f Example/NC_005230_proteins.fasta -st virus -out results
+    
 """
 
 import argparse
