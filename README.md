@@ -91,7 +91,7 @@ python3.7 CRISPRloci_standalone.py -f Example/NC_005230_proteins.fasta -st  prot
 #### Viral mode
 In order to test the viral more execute the following command
 ```
-python3.7 CRISPRloci_standalone.py -f Example/Input3.fa -st repeat
+python3.7 CRISPRloci_standalone.py -f Example/Input3.fa -st virus
 ```
 
 
