@@ -11,8 +11,6 @@ Exemplo: Master Script - Working
 
     3- For a Virus
     python3.7 CRISPRloci_standalone.py -f Example/NC_034623.fasta -st virus -out results
-
-    
 """
 
 import argparse
@@ -886,6 +884,25 @@ def generating_summaries_cas_result_tab_and_main():
     main_summary_function(summary_crisp, crisp_candidates, main_summary)
 
 
+def generating_cas_results_tab():
+    cas_results = summ + '/cas_results.tab'
+    print(summary_crisp)
+    if os.path.exists(summary_crisp) is True:
+        if os.path.exists(dirname_cas + '/predictions/') is True:
+            try:
+                print("cas result", cas_results)
+                cas_tab_function(summary_crisp, dirname_cas + '/predictions/', cas_results)
+            except KeyError:
+                try:
+                    cas_tab_function(summary_crisp, dirname_cas, cas_results)
+                except KeyError:
+                    pass
+        else:
+            print('This file does not exist: ' + dirname_cas + '/predictions/')
+    else:
+        print('This file does not exist: ' + summary_crisp)
+
+
 def generating_summaries_protein():
     """
     This function generated the summary files - Protein mode.
@@ -1585,10 +1602,16 @@ if __name__ == '__main__':
             dirname_cas, hmm_cas = casboundary()
             re_dirname_crisp = crispr_cas_identifier_protein()
             generating_summaries_protein()
+
             csv_long_name_fix(summ)
 
             summary_cas = summ + '/summary_casboundary.csv'
             fill_in_locations_cas_boundary_summary(summary_cas, dict_protein)
+
+            summary_crisp = summ + '/summary_crisp.csv'
+            summary_crisp_dna_v2(re_dirname_crisp, summary_cas, summary_crisp)
+
+            generating_cas_results_tab()
             # remove hmmsearch output
             os.system('rm -rf ' + hmm_cas)
 
@@ -1611,7 +1634,6 @@ if __name__ == '__main__':
             # remove hmmsearch output
             os.system('rm -rf ' + hmm_cas)
 
-
             args.fasta_file = "dna_input.fa"
 
             # CRISPRidentify - Ready to use
@@ -1632,6 +1654,9 @@ if __name__ == '__main__':
                     summ + '/annotations_details.svg -H 100 -W 1000')
             else:
                 print('This file does not exist: ' + summ + '/annotations_details.tab')
+
+            generating_summaries_cas_result_tab_and_main()
+            csv_long_name_fix(summ)
 
             main_summary = summ + '/Main_summary.csv'
             main_summary_function(summary_crisp, crisp_candidates, main_summary)
@@ -1669,3 +1694,4 @@ if __name__ == '__main__':
 
 ################################################################################
 ################################################################################
+
