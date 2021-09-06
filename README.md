@@ -24,8 +24,8 @@ CRISPRloci_standalone.py has been tested with Python 3.7 To run it, we recommend
 
 
 ```
-wget https://github.com/BackofenLab/CRISPRloci/archive/v1.0.0.tar.gz
-tar -xzf v1.0.0.tar.gz
+wget https://github.com/BackofenLab/CRISPRloci/archive/1.0.0.tar.gz
+tar -xzf 1.0.0.tar.gz
 ```
 
 ### Second step: download the Hidden Markov (HMM) and Machine Learning (ML) models
