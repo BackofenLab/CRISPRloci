@@ -1434,10 +1434,10 @@ if __name__ == '__main__':
             dirname_target = crispr_self_target()
 
             # CRISPRAccuracy - Ready to use
-            folder_crispr_acc = crispr_accuracy()
+            #folder_crispr_acc = crispr_accuracy()
 
             # remove hmmsearch output
-            os.system('rm -rf ' + hmm_cas)
+            #os.system('rm -rf ' + hmm_cas)
 
         else:
             summ_old = os.path.abspath(folder_main)
@@ -1445,7 +1445,6 @@ if __name__ == '__main__':
             for file_name in file_names:
                 result_local_folder = join(summ_old, file_name)
                 cmd = f"mkdir {result_local_folder}"
-                print(cmd)
                 os.system(cmd)
 
                 file_name += ".fasta"
@@ -1453,8 +1452,6 @@ if __name__ == '__main__':
 
                 summ = result_local_folder
                 folder_main = summ
-                print("res local folder", summ)
-                print("input file", args.fasta_file)
 
                 # Casboundary - Ready to use
                 dirname_cas, hmm_cas = casboundary()
@@ -1493,10 +1490,10 @@ if __name__ == '__main__':
                 dirname_target = crispr_self_target()
 
                 # CRISPRAccuracy - Ready to use
-                folder_crispr_acc = crispr_accuracy()
+                #folder_crispr_acc = crispr_accuracy()
 
                 # remove hmmsearch output
-                os.system('rm -rf ' + hmm_cas)
+                #os.system('rm -rf ' + hmm_cas)
 
 
 
@@ -1510,7 +1507,7 @@ if __name__ == '__main__':
         generating_summaries_protein()
         csv_long_name_fix(summ)
         # remove hmmsearch output
-        os.system('rm -rf ' + hmm_cas)
+        #os.system('rm -rf ' + hmm_cas)
 
     #############################################################################
 
@@ -1591,10 +1588,10 @@ if __name__ == '__main__':
             dirname_target = crispr_self_target()
 
             # CRISPRAccuracy - Ready to use
-            folder_crispr_acc = crispr_accuracy()
+            #folder_crispr_acc = crispr_accuracy()
 
             # remove hmmsearch output
-            os.system('rm -rf ' + hmm_cas)
+            #os.system('rm -rf ' + hmm_cas)
 
         if dict_protein and not dict_dna:
             args.fasta_file = "protein_input.fa"
@@ -1632,7 +1629,7 @@ if __name__ == '__main__':
             fill_in_locations_cas_boundary_cassetes(tmp_cas_boundary_row, dict_protein)
 
             # remove hmmsearch output
-            os.system('rm -rf ' + hmm_cas)
+            #os.system('rm -rf ' + hmm_cas)
 
             args.fasta_file = "dna_input.fa"
 
@@ -1669,7 +1666,7 @@ if __name__ == '__main__':
 
             # CRISPRAccuracy - Ready to use
 
-            folder_crispr_acc = crispr_accuracy()
+            #folder_crispr_acc = crispr_accuracy()
 
 
     #############################################################################
