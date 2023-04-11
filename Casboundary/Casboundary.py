@@ -122,7 +122,10 @@ def extract_regions_sequences(proteins_fasta_file, regions, output_dir):
         sequences = SeqIO.to_dict(SeqIO.parse(file_, 'fasta'))
     
     regions_prot_ids = [set(r.index) for r in regions]
-    proteins_ids_regions = set.union(*regions_prot_ids)
+    try:
+        proteins_ids_regions = set.union(*regions_prot_ids)
+    except TypeError:
+        proteins_ids_regions = []
     sequences = [sequences[prot_id] for prot_id in sorted(proteins_ids_regions, key=lambda s : (len(s), s))]
     regions_fasta_file = output_dir + f'/regions_genes.fasta'
     

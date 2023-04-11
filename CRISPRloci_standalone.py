@@ -315,7 +315,7 @@ def crispr_self_target():
         if os.path.exists(summ + '/annotations_details.tab') is True:
             if os.path.exists(summ + '/Bona-Fide_Candidates.txt') is True:
                 os.chdir(mainPath + '/CRISPRselfTarget/')
-                print(os.getcwd())
+                #print(os.getcwd())
                 os.system('python3.7 CRISPRSelftarget.py -i ' + fasta + ' -a '
                           + summ + '/annotations_details.tab' + ' -tdir '
                           + summ + ' -out ' + dirname_target)
@@ -430,8 +430,8 @@ def results_summary_casboundary(dirname_cas, output_casboud):
 
 
 def cas_tab_function(summary_crisp, dirname_cas, output_cas_tab):
-    print("summary crispr", summary_crisp)
-    print("dirname cas", dirname_cas)
+    #print("summary crispr", summary_crisp)
+    #print("dirname cas", dirname_cas)
 
     s_crisp = pd.read_csv(summary_crisp)
     sequences = {}
@@ -886,7 +886,7 @@ def generating_summaries_cas_result_tab_and_main():
 
 def generating_cas_results_tab():
     cas_results = summ + '/cas_results.tab'
-    print(summary_crisp)
+    #print(summary_crisp)
     if os.path.exists(summary_crisp) is True:
         if os.path.exists(dirname_cas + '/predictions/') is True:
             try:
@@ -1176,7 +1176,7 @@ def run_accuracy_alone(result_folder):
     cur_path = str(pathlib.Path().absolute())
     os.chdir("CRISPRAccuracy/")
     cmd = f"perl {absolute_path_accuracy} --DR {result_folder}/Accuracy_independent_repeat.fa -a {result_folder}/Accuracy_independent_DNA.fa --str-f DB --msfas {result_folder}/Accuracy_independent_repeat_structure.fa"
-    print(cmd)
+    #print(cmd)
     os.system(cmd)
     os.chdir(cur_path)
 
@@ -1400,6 +1400,7 @@ if __name__ == '__main__':
 
             # Casboundary - Ready to use
             dirname_cas, hmm_cas = casboundary()
+
 
             # CRISPRcasIdentifier - Ready to use
             # dirname_crisp, predictions_crisp, hmm, cassette = crispr_cas_identifier()
@@ -1643,6 +1644,7 @@ if __name__ == '__main__':
 
             # Please  check whether the files exists before doing anything
             # Run the jar script
+
 
             if os.path.exists(summ + '/annotations_details.tab') is True:
                 os.system(
